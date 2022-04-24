@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" type="module" defer></script>
     <title>SOPT</title>
   </head>
   <body>
@@ -13,154 +14,35 @@
         <aside class="aside-left">
           <div class="brand-option">
             <span>다른거 먹자</span>
-            <button>맥도날드</button>
-            <button>버거킹</button>
+            <button class="mac">맥도날드</button>
+            <button class="king">버거킹</button>
           </div>
         </aside>
-        <section>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-          <article class="menu">
-            <img src="assets/ham.jpeg" alt="burgur" />
-            <div class="menu-info">
-              <h3>빅맥</h3>
-              <span>5,000원</span>
-              <p>한명 먹다 둘이 죽어도 모를 맛</p>
-            </div>
-          </article>
-        </section>
+        <section class="menu-list"></section>
         <aside class="aside-right">
           <div class="orderSheet">
-            <div class="cart">장바구니</div>
+            <span>장바구니</span>
+            <div class="cart"></div>
             <div class="cost">
               <h4>누적 금액</h4>
-              <span>0원</span>
+              <div class="total">0원</div>
             </div>
             <div class="order-button-wrapper">
-              <button>주문하기</button>
-              <button>취소하기</button>
+              <button class="order-button">주문하기</button>
+              <button class="cancel-button">취소하기</button>
             </div>
           </div>
         </aside>
       </main>
+      <div class="background hidden">
+        <div class="modal">
+          <span>주문을 완료하시겠습니까?</span>
+          <div class="button-wrapper">
+            <a href="./ending.html">예</a>
+            <button class="modal-cancel">아니오</button>
+          </div>
+        </div>
+      </div>
       <footer>THE SOPT</footer>
     </div>
   </body>

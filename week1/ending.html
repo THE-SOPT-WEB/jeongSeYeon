@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @keyframes background {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      body {
+        background-color: dodgerblue;
+        opacity: 0.99;
+      }
+      .background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        border-radius: 50%;
+        z-index: -1;
+        animation: background 3s alternate infinite;
+      }
+
+      .script {
+        mix-blend-mode: difference;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        margin: auto;
+        height: 4rem;
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+      }
+    </style>
+    <title>SOPT</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="script" style="z-index: 3">The end...</div>
+  </body>
+</html>
