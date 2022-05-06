@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>SOPT CAFE</title>
+  </head>
+  <body>
+    <div id="app">
+      <header><h1>☕️ SOPT CAFE ☕️</h1></header>
+      <main>
+        <section class="score-board">
+          <h2>0</h2>
+          <h2>점</h2>
+        </section>
+        <section class="quiz-board">
+          <img class="quiz-board__coffee" />
+          <div class="quiz-board__quiz">
+            <h3>이 커피는 무슨 메뉴일까요?</h3>
+          </div>
+          <div class="quiz-board__button-wrapper">
+            <button data-id="0">에스프레소</button>
+            <button data-id="1">아메리카노</button>
+            <button data-id="2">바닐라라떼</button>
+            <button data-id="3">아인슈페너</button>
+            <button data-id="4">아포가토</button>
+          </div>
+        </section>
+        <section class="reset-section">
+          <button class="reset-section__button">다시하기</button>
+        </section>
+      </main>
+      <div class="wrong background hidden">
+        <div class="modal">
+          <h3>오답입니다!</h3>
+        </div>
+      </div>
+      <div class="loading">
+        <div class="modal">
+          <h3>로딩중...</h3>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
