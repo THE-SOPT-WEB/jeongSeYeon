@@ -17,7 +17,9 @@ a,
 nav {
   box-sizing: border-box;
 }
-
+a {
+  text-decoration: none;
+}
 ol,
 ul,
 li {
@@ -103,7 +105,8 @@ section {
 .menu-info {
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
+  flex-grow: 1;
+  padding-left: 2rem;
   height: 100%;
   justify-content: center;
 }
@@ -117,6 +120,20 @@ section {
   flex-grow: 1;
   position: relative;
 }
+@keyframes ani {
+  0% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translateX(-10%);
+  }
+  66% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
 .orderSheet {
   display: flex;
   flex-direction: column;
@@ -129,6 +146,9 @@ section {
   right: 0;
   top: 1rem;
 }
+.ani {
+  animation: ani 0.3s ease-in-out;
+}
 
 .orderSheet > div:not(:last-child) {
   border-bottom: 1px solid black;
@@ -138,6 +158,18 @@ section {
   width: 100%;
   flex-grow: 1;
   padding: 1rem 0;
+}
+
+.total {
+  padding: 0.5rem 0;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.cart-item > input {
+  width: 20%;
 }
 
 .order-button-wrapper {
@@ -162,6 +194,40 @@ footer {
   font-size: 2rem;
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.hidden {
+  display: none;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-around;
+  width: 20rem;
+  height: 10rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+}
+
+.button-wrapper > a,
+.button-wrapper > button {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+.modal a {
+  color: dodgerblue;
+}
 @media (max-width: 1600px) {
   .aside-left {
     width: 0;
