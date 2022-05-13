@@ -4,6 +4,7 @@ import { getLocation } from "../getLocation";
 
 function useFetchPubList() {
   const [pubList, setPubList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function 맥주집가져오기(keyword, regionBase = false) {
     const { x, y } = await getLocation();
@@ -11,6 +12,7 @@ function useFetchPubList() {
       ? { query: keyword + " " + "맥주" }
       : { x, y, radius: 1000, query: "맥주" };
 
+    setIsLoading(true);
     const { data } = await axios.get(
       "https://dapi.kakao.com/v2/local/search/keyword",
       {
@@ -20,19 +22,21 @@ function useFetchPubList() {
         params,
       }
     );
-
-    setPubList(data);
+    setPubList(data.documents);
+    setIsLoading(false);
   }
 
   const mutate = async (keyword, regionBase = false) => {
-    맥주집가져오기(keyword, regionBase);
+    setIsLoading(true);
+    await 맥주집가져오기(keyword, regionBase);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     맥주집가져오기();
   }, []);
 
-  return [pubList, mutate];
+  return [pubList, mutate, isLoading];
 }
 
 export default useFetchPubList;

@@ -6,10 +6,14 @@ function SearchForm({
   onChangeCheckbox,
   onChangeInput,
   inputValue,
-  onSubmit,
+  onSubmit: handleSubmit,
 }) {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(inputValue, isRegionBase);
+  };
   return (
-    <StyledSearchForm>
+    <StyledSearchForm onSubmit={onSubmit}>
       <StyledToggleMenu>
         지역 기반으로 검색할까요?{" "}
         <input
@@ -22,20 +26,16 @@ function SearchForm({
         type="text"
         value={inputValue}
         onChange={onChangeInput}
+        disabled={!isRegionBase}
       />
-      <StyledSearchButton
-        type="submit"
-        onClick={() => onSubmit(inputValue, isRegionBase)}
-      >
-        검색하기
-      </StyledSearchButton>
+      <StyledSearchButton type="submit">검색하기</StyledSearchButton>
     </StyledSearchForm>
   );
 }
 
 export default SearchForm;
 
-const StyledSearchForm = styled.div`
+const StyledSearchForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,4 +56,5 @@ const StyledSearchButton = styled.button`
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 `;

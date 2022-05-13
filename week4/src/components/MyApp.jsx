@@ -6,7 +6,7 @@ import SearchForm from "./SearchForm";
 function MyApp() {
   const [isRegionBase, setIsRegionBase] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [searchResult, search] = useFetchPubList();
+  const [searchResult, search, isLoading] = useFetchPubList();
 
   const inputHandler = (e) => setInputValue(e.target.value);
   const checkboxHandler = (e) => setIsRegionBase((prev) => !prev);
@@ -22,7 +22,11 @@ function MyApp() {
         onChangeCheckbox={checkboxHandler}
         onSubmit={search}
       />
-      <Result data={searchResult?.documents} isRegionBase={isRegionBase} />
+      {isLoading ? (
+        <div>loading...</div>
+      ) : (
+        <Result data={searchResult} isRegionBase={isRegionBase} />
+      )}
     </StyledMyApp>
   );
 }
