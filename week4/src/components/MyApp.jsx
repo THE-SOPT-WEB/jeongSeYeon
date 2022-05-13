@@ -4,28 +4,27 @@ import useFetchPubList from "../utils/hook/useFetchPubList";
 import Result from "./Result";
 import SearchForm from "./SearchForm";
 function MyApp() {
-  const [isRegionBase, setIsRegionBase] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-  const [searchResult, search, isLoading] = useFetchPubList();
+  const [searchResult, isLoading, api] = useFetchPubList();
+  const [searchForm, setSearchForm] = useState({
+    isRegionBase: false,
+    keyword: "",
+  });
 
-  const inputHandler = (e) => setInputValue(e.target.value);
-  const checkboxHandler = (e) => setIsRegionBase((prev) => !prev);
+  const onSubmit = (keyword, isRegionBase) => {
+    api.fetch(keyword, isRegionBase);
+    setSearchForm({ keyword, isRegionBase });
+  };
+
   return (
     <StyledMyApp>
       <StyledHeader>
         <h1>동네 맥주집 찾기</h1>
       </StyledHeader>
-      <SearchForm
-        isRegionBase={isRegionBase}
-        inputValue={inputValue}
-        onChangeInput={inputHandler}
-        onChangeCheckbox={checkboxHandler}
-        onSubmit={search}
-      />
+      <SearchForm onSubmit={onSubmit} />
       {isLoading ? (
         <div>loading...</div>
       ) : (
-        <Result data={searchResult} isRegionBase={isRegionBase} />
+        <Result data={searchResult} isRegionBase={searchForm.isRegionBase} />
       )}
     </StyledMyApp>
   );

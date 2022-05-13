@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-function SearchForm({
-  isRegionBase,
-  onChangeCheckbox,
-  onChangeInput,
-  inputValue,
-  onSubmit: handleSubmit,
-}) {
+function SearchForm({ onSubmit: handleSubmit }) {
+  const [isRegionBase, setIsRegionBase] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const inputHandler = (e) => setInputValue(e.target.value);
+  const checkboxHandler = (e) => setIsRegionBase((prev) => !prev);
+
   const onSubmit = (e) => {
     e.preventDefault();
     handleSubmit(inputValue, isRegionBase);
   };
+
   return (
     <StyledSearchForm onSubmit={onSubmit}>
       <StyledToggleMenu>
@@ -19,13 +20,13 @@ function SearchForm({
         <input
           type="checkbox"
           checked={isRegionBase}
-          onChange={onChangeCheckbox}
+          onChange={checkboxHandler}
         />
       </StyledToggleMenu>
       <StyledSearchInput
         type="text"
         value={inputValue}
-        onChange={onChangeInput}
+        onChange={inputHandler}
         disabled={!isRegionBase}
       />
       <StyledSearchButton type="submit">검색하기</StyledSearchButton>

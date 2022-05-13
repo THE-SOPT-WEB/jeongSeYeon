@@ -1,13 +1,13 @@
 import React from "react";
 import Pub from "./Pub";
 import styled from "styled-components";
-function Result({ data, isRegionBase }) {
+const Result = React.memo(function Result({ data, isRegionBase }) {
   return (
     <StyledResult>
       {data.length === 0 ? (
         <StyledNoResult>결과 없음...</StyledNoResult>
       ) : (
-        data?.map(({ id, place_name, phone, road_address_name, distance }) => (
+        data.map(({ id, place_name, phone, road_address_name, distance }) => (
           <Pub
             key={id}
             name={place_name}
@@ -18,7 +18,7 @@ function Result({ data, isRegionBase }) {
       )}
     </StyledResult>
   );
-}
+});
 
 export default Result;
 
